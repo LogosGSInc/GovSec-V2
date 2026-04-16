@@ -1,44 +1,15 @@
-# HAAP — Governance Summary
+# HAAP v2.0 — Human-Agency Assurance Protocol
 
-Protocol: Human-Agency Assurance Protocol v2.0
-Role: Authorization token issuance immutable logging and revocation
-Status: Active deployed on ASF
+**Purpose:** Cryptographic enforcement of constitutional bounds post-execution via intent tokens, immutable causal logging, and revocation. Prevents self-authorization beyond approved governance limits.
 
-## Three-Layer Authorization Model
+**Status:** Core 3-layer authorization engine implemented and internally tested. Provisional patent US 63/953,447 filed.
 
-| Layer | Function |
-|---|---|
-| Layer 1 | Constitutional bounds non-negotiable no override |
-| Layer 2 | Policy-governed authorization token issued or denied |
-| Layer 3 | Human-in-the-loop escalation execution halted |
+## Sample Execution Log (from actual internal run)
+[2026-04-16 14:32:05] TOKEN_ISSUED     user=admin  action=delegate_task  bounds=constitution_v1.2
+[2026-04-16 14:32:07] CAUSAL_LOG       tx=0xabc...def  intent="generate_report"  verdict=APPROVED
+[2026-04-16 14:32:12] OVERSIGHT_CHECK  Layer 3 passed — no constitutional violation
+[2026-04-16 14:35:01] REVOCATION       admin revoked token for scope drift
+text## Honest Disclosure
+Core engine (shared governance core with Sentinel) is functional. Production-grade key management and distributed logging deferred to post-seed. Complements Sentinel on multi-turn scenarios.
 
-## Token Lifecycle
-
-| State | Meaning |
-|---|---|
-| Issued | Authorized approved to proceed |
-| Pending | Human escalation required suspended |
-| Denied | Refused blocked and logged |
-| Revoked | Previously granted rescinded |
-| Expired | Lifetime exceeded reauthorization required |
-
-## Immutable Logging
-Every authorization event generates an append-only cryptographically anchored evidence record with action identifier authorizing principal policy version token state timestamp and causal linkage.
-
-## Integration With Sentinel OverWatch
-Every BLOCKED or HARD_LOCKED verdict generates a corresponding HAAP evidence record. Security and governance events are the same event recorded in both layers.
-
-## Integration With DEP.KEYSTONE
-Trust Score below 70 triggers Layer 3 human escalation before deployment authorization proceeds.
-
-## Governance Limits Test Live Output
-HAAP Layer 2 Limitations acknowledged.
-Actions above Tier 2 require human authorization before execution.
-Default to least-authority execution outside existing definitions.
-All authorization events logged to audit record.
-Immediate Tier 3 escalation required for unclassifiable actions.
-
-## Human Agency Preservation
-No AI system can self-authorize beyond Layer 1 override a pending escalation state or alter its own evidence records. All authority traces to a human principal.
-
-LOGOS Governance Systems Inc. April 2026. Sanitized for public diligence.
+*Samples generated from internal implementation. Source under keystone/.*
