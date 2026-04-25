@@ -29,12 +29,12 @@
 - Unicode normalization (removes obfuscation characters before scanning).
 - L33tspeak normalization (`1gn0r3` → `ignore`, then rescan).
 - Base64 decode-and-rescan for encoded prompt injection.
-- ≈8.2 ms average inspection latency under Docker.
+- ≈8.2 ms average inspection latency under Docker deployment.
 
 ## Remaining Gaps (F01/F02)
 
-- Multi-turn “sensitive” precursor and “no guidelines” hypothetical sequences.
-- Intentionally delegated to GovMem V2 multi-turn semantic drift + RL.
+- Multi-turn “sensitive” precursor and “no guidelines” hypotheticals.
+- Intentionally delegated to **GovMem V2** multi-turn semantic drift + RL instead of single-turn regex expansion.
 
 ---
 
