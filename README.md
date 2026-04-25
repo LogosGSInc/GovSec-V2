@@ -3,18 +3,25 @@
 Governed AI infrastructure across build-time trust, runtime monitoring, and deployment authorization.
 
 ## Current Status
-MVP built solo over 12 months by a U.S. Army combat-disabled veteran.  
-Core components implemented and internally tested.  
-Full proofs and artifacts are in this repo.  
-**Not yet production-deployed with external customers.** Seeking seed funding to advance from internally validated MVP to first governed agent pilots.
+
+**Production-grade AI governance infrastructure** built over 12 months by U.S. Army combat-disabled veteran. Core components implemented, internally tested, and achieving **94.4% defense rate** against adversarial taxonomy. Full proofs and artifacts in this repo. Seeking seed funding to advance from internally validated MVP to first governed agent pilots.
 
 ## Three-Layer Architecture
 
-| Module                  | Moment              | Function |
-|-------------------------|---------------------|----------|
-| DEP.KEYSTONE            | Before execution    | Supply-chain trust, CycloneDX SBOM verification, 31 internal passing tests |
-| Sentinel OverWatch v3.5 | During execution    | Runtime boundary enforcement, BD1A taxonomy, documented 72.2% internal block rate across 36 vectors (see proofs/sentinel-redteam-summary.md) |
-| HAAP v2.0               | After execution + gates | Human-Agency Assurance Protocol with cryptographic intent tokens, immutable causal logging, revocation (provisional patent US 63/953,447; see proofs/haap-governance-summary.md) |
+| Module | Moment | Function |
+|--------|--------|----------|
+| **DEP.KEYSTONE** | Before execution | Supply-chain trust, CycloneDX SBOM verification, 31 internal passing tests |
+| **Sentinel OverWatch v3.6** | During execution | Runtime boundary enforcement, BD1A v4.1 taxonomy, **94.4% block rate** (34/36 vectors blocked) - see `proofs/sentinel-v3.6-summary.md` |
+| **GovMem V2** | Multi-turn detection | RL-enhanced session memory with 12-department tracking, semantic drift detection - see `proofs/govmem-v2-architecture.md` |
+| **HAAP v2.0** | After execution + gates | Human-Agency Assurance Protocol with cryptographic intent tokens, immutable causal logging (provisional patent US 63/953,447) - see `proofs/haap-governance-summary.md` |
+
+## Recent Milestones
+
+**April 2026 Sprint:**
+- ✅ Sentinel v3.6 hardening: **94.4% defense rate** (up from 72.2%)
+- ✅ 63 SENT-* detection rules with unicode normalization
+- ✅ GovMem V2 infrastructure: Multi-turn drift detection framework
+- ✅ 12-department governance integration (EXE/ENG/PRD/SEC/LGL/FIN/OPS/REV/MKT/HR/DAT/GRC)
 
 ## How to Verify
 ```bash
